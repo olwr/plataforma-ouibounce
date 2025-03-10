@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JQuery e Ouibounce -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ouibounce/0.0.12/ouibounce.js"
+    integrity="sha512-jBbXdclmLsEjHr6brYhQEf22JqtYDPyUV4gl8AJ9u5HL1burqhMFD4x1gt3HF4alYm6uq5ujYFDTQ78743lyZw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+  <div id="ouibounce-modal">
+    <div class="underlay"></div>
+
+    <div class="modal">
+      <div class="modal-title">
+        <h3>Este é um modal OuiBounce</h3>
+      </div>
+
+      <div class="modal-body">
+        <p>Sint labore et enim quis id minim ex minim. Ad deserunt ipsum magna pariatur non veniam sit Lorem occaecat velit est occaecat cillum. Quis occaecat quis in minim non mollit incididunt esse.</p>
+        <p>Elit non esse exercitation dolor minim ut incididunt et. Ipsum elit laboris ullamco eu nisi commodo exercitation ullamco dolor. Est irure aliqua esse ad magna labore. Lorem in velit aliquip elit.</p>
+      </div>
+
+      <div class="modal-footer">
+        <p>
+          <span>Entendi, obrigado</span>
+        </p>
+      </div>
+    </div>
+    
+  </div>
+
+  <script>
+    ouibounce(document.querySelector('#ouibounce-modal'), {
+      aggressive: true,
+      timer: 0,
+      callback: () => {console.log('ouibounce fired!'); }
+    });
+
+    $('body').on('click', () => {
+      $('#ouibounce-modal').hide();
+    });
+    
+    $('#ouibounce-modal .modal-footer').on('click', () => {
+      $('#ouibounce-modal').hide();
+    });
+
+    $('#ouibounce-modal .modal').on('click', (e) => {
+      e.stopPropagation();
+    });
+  </script>
+</body>
+
+</html>
